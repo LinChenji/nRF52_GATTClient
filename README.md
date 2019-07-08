@@ -1,4 +1,4 @@
-#nRF52 BLE_Central扫描对应自定义服务属性：
+# nRF52 BLE_Central扫描对应自定义服务属性： #
 
 Central对应ble_app_template_pca10040_s132(new service)，扫描自定义user_service并由central的三个按键来完成ATTR的读取、写入、开启通知CCCD操作。由于central没有模板例程，我干脆以ble_app_hrs_c为蓝本来修改，步骤如下：
 
