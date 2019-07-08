@@ -1,0 +1,4 @@
+*.txt
+*.emSession
+*.jlink
+/Output
