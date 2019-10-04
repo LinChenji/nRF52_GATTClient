@@ -5,11 +5,11 @@ Central对应ble_app_template_pca10040_s132(new service)，扫描自定义user_s
 1、	复制ble_app_hrs_c整个文件出来，重命名为ble_app_template_c_pca10040_s132(user)，
 移动pca0040/s132/ses下的.emProject和flash_placement.xml到ble_app_template_c_pca10040_s132(user)文件夹下，同时pca10040/s132/config文件夹也移动到ble_app_template_c_pca10040_s132(user)文件夹下，把工程文件重命名为ble_app_template_pca10040_s132(new service).emProject：
 
-![11.png](过程截图/11.png)
+![11.png](https://github.com/LinChenji/nRF52_GATTServer/blob/master/%E8%BF%87%E7%A8%8B%E6%88%AA%E5%9B%BE/11.png)
  
 2、修改工程配置和路径。由于路径移动，相对位置改变也要同步改变。notepad打开ble_app_template_c_pca10040_s132(user).emProject同ble_peripheral修改一样，把所有“../../../../../../”替换为“../../../”，标签project configuration里的c_user_include_directories最后一项由“../config”改为“config/”，然后子标签“<folder Name="Application">”里“../../../main.c”改作“main.c”，“../config/sdk_config.h”改作“config/sdk_config.h”，同时更改工程名把标签solution name和project name都该做ble_app_template_c_pca10040_s132(user)，打开工程，发现SES标题栏变成了自己命名的solution name。编译查看是否报错。
 
- ![12.png](过程截图/12.png)
+ ![12.png](https://github.com/LinChenji/nRF52_GATTServer/blob/master/%E8%BF%87%E7%A8%8B%E6%88%AA%E5%9B%BE/12.png)
 
 3、打开工程，同样右击工程菜单选择New Folder，取名BLE_Services，然后右击该文件夹
 新建文件user_services_c.c和user_service_c.h，此时notepad打开ble_app_template_c_pca10040_s132(user).emProject可以看到多了标签
@@ -34,7 +34,7 @@ BLE_US_C_DEF(m_us_c);
     #define BLE_US_C_BLE_OBSERVER_PRIO 2  //ble_us_c
     #endif
 
- ![13.png](过程截图/13.png)
+ ![13.png](https://github.com/LinChenji/nRF52_GATTServer/blob/master/%E8%BF%87%E7%A8%8B%E6%88%AA%E5%9B%BE/13.png)
 
 5、	接着定义自定义服务和特征UUID
 
@@ -162,7 +162,7 @@ bas_c_init（也可保留），然后添加client端的扫描、连接、按键�
     printf("%2x\n",p_adv_report->peer_addr.addr[i]);
 修改db扫描回调函数db_disc_handler：
  
-![14.png](过程截图/14.png)
+![14.png](https://github.com/LinChenji/nRF52_GATTServer/blob/master/%E8%BF%87%E7%A8%8B%E6%88%AA%E5%9B%BE/14.png)
 
 10、初始化自定义服务client。在main主函数添加：
 
